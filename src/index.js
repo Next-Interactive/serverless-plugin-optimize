@@ -50,6 +50,12 @@ class Optimize {
 
     /** AWS provider and valid runtime check */
     if (validRunTime) {
+      serverless.configSchemaHandler.defineFunctionProperties('aws', {
+        properties: {
+          optimize: {}
+        }
+      });
+
       let nodeVersion = 'current'
 
       if (this.serverless.service.provider.runtime) {
